@@ -81,19 +81,19 @@
             highlightitemIndex = (highlightitemIndex + 1) % counthighlightitems;
             
 
-            videoEle =
+            videoEleNext =
                 document.getElementsByClassName("videocover")[
                     highlightitemIndex
                 ];
-            videoEle.play();
-            videoEle.style.setProperty("opacity", "1.0");
+            videoEleNext.play();
+            videoEleNext.style.setProperty("opacity", "1.0");
 
             curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
 
             console.log( highlightitemIndex , curretnhighlightitem.attr('data-backgroundcolor') )
             d3.select('.Mainmenu').style('background-color', curretnhighlightitem.attr('data-backgroundcolor'))
             d3.selectAll('.Mainmenu--typo').style('color', curretnhighlightitem.attr('data-typographycolor'))
-            
+
             d3.selectAll(".highlightitem-cursor")
                 .transition()
                 .duration(150)
@@ -128,9 +128,9 @@
         d3.select('.Mainmenu').style('background-color', curretnhighlightitem.attr('data-backgroundcolor'))
         d3.selectAll('.Mainmenu--typo').style('color', curretnhighlightitem.attr('data-typographycolor'))
 
-        videoEle = document.getElementsByClassName("videocover")[highlightitemIndex];
-        videoEle.play();
-        videoEle.style.setProperty("opacity", "1.0");
+        videoEleNext = document.getElementsByClassName("videocover")[highlightitemIndex];
+        videoEleNext.play();
+        videoEleNext.style.setProperty("opacity", "1.0");
 
         d3.selectAll(".highlightitem-cursor")
             .transition()
