@@ -48,10 +48,14 @@
     //console.log(counthighlightitems);
     //d3.select('#videocover').style('opacity', 0)
     // const uisequencer = d3.scaleLinear([0, 8000], [0, 100])
-    document.getElementsByClassName('videocover')[highlightitemIndex].play()
+    let videoEle =
+        document.getElementsByClassName("videocover")[highlightitemIndex];
+    videoEle.play();
+    videoEle.style.setProperty("opacity", "1.0");
+    // document.getElementsByClassName('videocover')[highlightitemIndex].play()
 
     //alert( `.videocover:nth-child(${highlightitemIndex + 1})` )
-    d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`).attr('loop', true).transition().duration(600).style("opacity", 1);
+    //d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`).attr('loop', true).transition().duration(600).style("opacity", 1);
     curretnhighlightitem
         .select(".highlightitem-cursor")
         .transition()
@@ -73,28 +77,46 @@
     // }, 33);
     function startSequencer() {
         coversequencer = setInterval(() => {
-            
-            //console.log(181);
-            d3.selectAll(`.videocover`)
-                .transition()
-                .duration(600)
-                .style("opacity", 0);
-            
+            console.log(`.videocover:nth-child(${highlightitemIndex + 1})`);
+            // d3.selectAll(`.videocover`)
+
+            videoEle =
+                document.getElementsByClassName("videocover")[
+                    highlightitemIndex
+                ];
+            videoEle.pause();
+            videoEle.style.setProperty("opacity", "0.0");
+
+            // d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`)
+            //     .transition()
+            //     .duration(600)
+            //     .style("opacity", 0)
+            //     .on('end', () => {
+            //         alert('video')
+            //     });
+
             highlightitemIndex = (highlightitemIndex + 1) % counthighlightitems;
 
-            d3.timeout(() => {
-                d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`)
-                    .transition()
-                    .duration(600)
-                    .style("opacity", 1);
-            }, 1300);
+            videoEle =
+                document.getElementsByClassName("videocover")[
+                    highlightitemIndex
+                ];
+            videoEle.play();
+            videoEle.style.setProperty("opacity", "1.0");
+
+            // d3.timeout(() => {
+            //     d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`)
+            //         .transition()
+            //         .duration(600)
+            //         .style("opacity", 1);
+            // }, 1300);
+
             curretnhighlightitem = d3.select(
                 `.Coverhighlights-informationsheet-highlightitem:nth-child(${
                     highlightitemIndex + 1
                 })`,
             );
-            d3
-                .selectAll(".highlightitem-cursor")
+            d3.selectAll(".highlightitem-cursor")
                 .transition()
                 .duration(150)
                 .style("left", "0%");
@@ -116,28 +138,35 @@
     }
 
     function pauseSequencer(e) {
-
         curretnhighlightitem = d3.select(
             `.Coverhighlights-informationsheet-highlightitem:nth-child(${
                 highlightitemIndex + 1
             })`,
         );
+
+        videoEle = document.getElementsByClassName("videocover")[highlightitemIndex];
+        videoEle.pause();
+        videoEle.style.setProperty("opacity", "0.0");
         //alert( `.videocover:nth-child(${highlightitemIndex + 1})` )
-        startSequencer();
-        d3.selectAll(`.videocover`)
-            .transition()
-            .duration(600)
-            .style("opacity", 0);
-        
+        //startSequencer();
+        // d3.selectAll(`.videocover`)
+        //     .transition()
+        //     .duration(600)
+        //     .style("opacity", 0);
+
         highlightitemIndex = parseInt(e.getAttribute("data-index"));
         clearInterval(coversequencer);
         //alert( `.videocover:nth-child(${highlightitemIndex + 1})` )
-        d3.timeout(() => {
-            d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`)
-                .transition()
-                .duration(600)
-                .style("opacity", 1);
-        }, 1300);
+        // d3.timeout(() => {
+        //     d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`)
+        //         .transition()
+        //         .duration(600)
+        //         .style("opacity", 1);
+        // }, 1300);
+
+        videoEle = document.getElementsByClassName("videocover")[highlightitemIndex];
+        videoEle.play();
+        videoEle.style.setProperty("opacity", "1.0");
 
         d3.selectAll(".highlightitem-cursor")
             .transition()
@@ -156,6 +185,8 @@
             .transition()
             .duration(600)
             .style("left", `${highlightitemIndex * -700}px`);
+
+        // startSequencer();
     }
 
     startSequencer();
