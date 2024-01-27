@@ -23,7 +23,7 @@
         background-image: linear-gradient(
             65deg,
             #000000ff,
-            #00000000,
+            #00000080,
             #00000000,
             #00000000
         );
@@ -40,22 +40,19 @@
         ".Coverhighlights-informationsheet",
     );
     const counthighlightitems = highlightitems.length;
-    //alert( `.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` )
+
     let curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
 
-    //let curretnhighlightitem2 = document.getElementsByClassName("Coverhighlights-informationsheet-highlightitem")[highlightitemIndex];
-    //alert( curretnhighlightitem2.getAttribute("data-index") )
-    //console.log(counthighlightitems);
-    //d3.select('#videocover').style('opacity', 0)
     // const uisequencer = d3.scaleLinear([0, 8000], [0, 100])
     let videoEle =
         document.getElementsByClassName("videocover")[highlightitemIndex];
     videoEle.play();
     videoEle.style.setProperty("opacity", "1.0");
-    // document.getElementsByClassName('videocover')[highlightitemIndex].play()
 
-    //alert( `.videocover:nth-child(${highlightitemIndex + 1})` )
-    //d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`).attr('loop', true).transition().duration(600).style("opacity", 1);
+    console.log( highlightitemIndex )
+    d3.select('.Mainmenu').style('background-color', curretnhighlightitem.attr('data-backgroundcolor'))
+    d3.selectAll('.Mainmenu--typo').style('color', curretnhighlightitem.attr('data-typographycolor'))
+    
     curretnhighlightitem
         .select(".highlightitem-cursor")
         .transition()
@@ -69,16 +66,10 @@
         .duration(7800)
         .style("left", "97%");
 
-    //    let videocover = document.getElementById('videocover')
-    //    videocover.style.opacity = 1.0
-    // let intervalhighlight = d3.interval((milli) => {
-    //     // console.log( uisequencer(milli) );
-    //     d3.select('.highlightitem--active').select('.highlightitem-cursor').style('left', `${uisequencer(milli)}%`)
-    // }, 33);
+
     function startSequencer() {
         coversequencer = setInterval(() => {
-            console.log(`.videocover:nth-child(${highlightitemIndex + 1})`);
-            // d3.selectAll(`.videocover`)
+            //console.log(highlightitemIndex);
 
             videoEle =
                 document.getElementsByClassName("videocover")[
@@ -87,15 +78,8 @@
             videoEle.pause();
             videoEle.style.setProperty("opacity", "0.0");
 
-            // d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`)
-            //     .transition()
-            //     .duration(600)
-            //     .style("opacity", 0)
-            //     .on('end', () => {
-            //         alert('video')
-            //     });
-
             highlightitemIndex = (highlightitemIndex + 1) % counthighlightitems;
+            
 
             videoEle =
                 document.getElementsByClassName("videocover")[
@@ -104,18 +88,12 @@
             videoEle.play();
             videoEle.style.setProperty("opacity", "1.0");
 
-            // d3.timeout(() => {
-            //     d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`)
-            //         .transition()
-            //         .duration(600)
-            //         .style("opacity", 1);
-            // }, 1300);
             curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
-            // curretnhighlightitem = d3.select(
-            //     `.Coverhighlights-informationsheet-highlightitem:nth-child(${
-            //         highlightitemIndex + 1
-            //     })`,
-            // );
+
+            console.log( highlightitemIndex , curretnhighlightitem.attr('data-backgroundcolor') )
+            d3.select('.Mainmenu').style('background-color', curretnhighlightitem.attr('data-backgroundcolor'))
+            d3.selectAll('.Mainmenu--typo').style('color', curretnhighlightitem.attr('data-typographycolor'))
+            
             d3.selectAll(".highlightitem-cursor")
                 .transition()
                 .duration(150)
@@ -128,43 +106,27 @@
                 .duration(7800)
                 .style("left", "97%");
 
-            //console.log(`${highlightitemIndex * -700}px`);
             d3.select(".Coverhighlights")
                 .transition()
                 .duration(600)
                 .style("left", `${highlightitemIndex * -700}px`);
-            // videocover.style.opacity = 0.0
+
         }, 8000);
     }
 
     function pauseSequencer(e) {
-        // curretnhighlightitem = d3.select(
-        //     `.Coverhighlights-informationsheet-highlightitem:nth-child(${
-        //         highlightitemIndex + 1
-        //     })`,
-        // );
-        // curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
 
         videoEle = document.getElementsByClassName("videocover")[highlightitemIndex];
         videoEle.pause();
         videoEle.style.setProperty("opacity", "0.0");
-        //alert( `.videocover:nth-child(${highlightitemIndex + 1})` )
-        //startSequencer();
-        // d3.selectAll(`.videocover`)
-        //     .transition()
-        //     .duration(600)
-        //     .style("opacity", 0);
+
 
         highlightitemIndex = parseInt(e.getAttribute("data-index"));
         curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
         clearInterval(coversequencer);
-        //alert( `.videocover:nth-child(${highlightitemIndex + 1})` )
-        // d3.timeout(() => {
-        //     d3.select(`.videocover:nth-child(${highlightitemIndex + 1})`)
-        //         .transition()
-        //         .duration(600)
-        //         .style("opacity", 1);
-        // }, 1300);
+
+        d3.select('.Mainmenu').style('background-color', curretnhighlightitem.attr('data-backgroundcolor'))
+        d3.selectAll('.Mainmenu--typo').style('color', curretnhighlightitem.attr('data-typographycolor'))
 
         videoEle = document.getElementsByClassName("videocover")[highlightitemIndex];
         videoEle.play();
@@ -193,12 +155,19 @@
 
     startSequencer();
 
-    // d3.selectAll(".Coverhighlights-informationsheet-highlightitem").on(
-    //     "click",
-    //     function () {
-    //         highlightitemIndex = select(this).attr('data-index');
-    //         alert( highlightitemIndex)
-    //         pauseSequencer();
-    //     }
-    // );
+
+    const toggleMute = () => {
+        if ( document.getElementsByClassName("videocover")[0].muted ) {
+            d3.selectAll('#icontogglemute').selectAll('.muted').attr('display', 'none')
+            d3.selectAll('#icontogglemute').selectAll('.unmuted').attr('display', 'initial')
+        } else {
+            d3.selectAll('#icontogglemute').selectAll('.muted').attr('display', 'initial')
+            d3.selectAll('#icontogglemute').selectAll('.unmuted').attr('display', 'none')
+        }
+        Array.from( document.getElementsByClassName("videocover") ).forEach(
+            function(element, index, array) {
+                element.muted = !element.muted;
+            }
+        );
+    }
 </script>
