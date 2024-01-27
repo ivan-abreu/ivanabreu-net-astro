@@ -1,0 +1,212 @@
+[
+    {
+        "title": {
+            "esp":"CODING IN ATYPICAL PLACES",
+            "eng":"CODING IN ATYPICAL PLACES"
+        },
+        "type": {
+            "esp":"CONCIERTO AUDIOVISUAL",
+            "eng":"AV CONCERT"
+        },
+        "year": "2022",
+        "time": {
+            "esp": "ARCHIVO",
+            "eng": "ARCHIVE"
+        },
+        "author": "MALITZIN CORTES (CNDSD) + IVAN ABREU",
+        "place": {
+            "esp":"ASIA CULTURE CENTER",
+            "eng":"ASIA CULTURE CENTER"
+        },
+        "event": {
+            "esp":"ISEA, ASIA CULTURE CENTER",
+            "eng":"ISEA, ASIA CULTURE CENTER"
+        },
+        "city": {
+            "esp": "Corea del Sur",
+            "eng": "Suth Korea"
+        },
+        "calltoaction": {
+            "esp":"VER",
+            "eng":"WATCH"
+        },
+        "target": "_blank",
+        "url": "https://livecinemacoding.xyz/coding-in-atypical-places-acc-2019/",
+        "video": "cover-autoconstruccion-iclc-2023-01.mp4"
+    },
+    {
+        "title": {
+            "esp": "CUSTODIA.PLACE",
+            "eng": "CUSTODIA.PLACE"
+        },
+        "type": {
+            "esp":"NET ART",
+            "eng":"NET ART"
+        },
+        "year": "2022",
+        "time": {
+            "esp": "PERMANENTE",
+            "eng": "PERMANENT"
+        },
+        "author": "IVAN ABREU",
+        "place": {
+            "esp":"MUSEO URBANO INTERACTIVO",
+            "eng":"URBAN INTWERACTIVE MUSEUM"
+        },
+        "event": {
+            "esp":"ATENTAR DESDE LOS CODIGOS",
+            "eng":"ATTENTION FROM THE CODES"
+        },
+        "city": {
+            "esp": "Puebla",
+            "eng": "Puebla"
+        },
+        "calltoaction": {
+            "esp":"INTERACTÚA",
+            "eng":"INTERACT"
+        },
+        "target": "_blank",
+        "url": "https://livecinemacoding.xyz/coding-in-atypical-places-acc-2019/",
+        "video": "cover-corea01.mp4"
+    },
+    {
+        "title": {
+            "esp": "FIREWORKS",
+            "eng": "FIREWORKS"
+        },
+        "type": {
+            "esp":"INSTALACION AUDIOVISUAL",
+            "eng":"AUDIOVISUAL INSTALLATION"
+        },
+        "year": "2022",
+        "time": {
+            "esp": "ARCHIVO",
+            "eng": "ARCHIVE"
+        },
+        "author": "MALITZIN CORTES (CNDSD) + IVAN ABREU",
+        "place": {
+            "esp":"ESTUDIO QUARRY",
+            "eng":"QUARRY STUDIO"
+        },
+        "event": {
+            "esp":"MUTEK MX",
+            "eng":"MUTEK MX"
+        },
+        "city": {
+            "esp": "Ciudad de Mexico",
+            "eng": "Mexico City"
+        },
+        "calltoaction": {
+            "esp":"VER",
+            "eng":"WATCH"
+        },
+        "target": "_self",
+        "url": "/hiperacusia2023",
+        "video": "cover-autoconstruccion-iclc-2023-01.mp4"
+    },
+    {
+        "title": {
+            "esp": "HIPERACUCIA",
+            "eng": "HIPERACUCIA"
+        },
+        "type": {
+            "esp":"COMPRAR",
+            "eng":"BUY"
+        },
+        "year": "2022",
+        "time": {
+            "esp": "ARCHIVO",
+            "eng": "ARCHIVE"
+        },
+        "author": "MALITZIN CORTES (CNDSD) + IVAN ABREU",
+        "place":{
+            "esp":"GALERIA ARTE ABIERTO",
+            "eng":"ARTE ABIERTO GALLERY"
+        },
+        "event": {
+            "esp":"CUT OUT FEST",
+            "eng":"CUTOUT FEST"
+        },
+        "city": {
+            "esp": "Ciudad de Mexico",
+            "eng": "Mexico City"
+        },
+        "calltoaction": {
+            "esp":"ENTRAR",
+            "eng":"ENTER"
+        },
+        "target": "_self",
+        "url": "/work",
+        "video": "cover-corea01.mp4"
+    },
+    {
+        "title": {
+            "esp": "CUSTODIA.PLACE",
+            "eng": "CUSTODIA.PLACE"
+        },
+        "type": {
+            "esp":"NET ART",
+            "eng":"NET ART"
+        },
+        "year": "2022",
+        "time": {
+            "esp": "PERMANENTE",
+            "eng": "PERMANENT"
+        },
+        "author": "IVAN ABREU",
+        "place": {
+            "esp":"MUSEO URBANO INTERACTIVO",
+            "eng":"URBAN INTWERACTIVE MUSEUM"
+        },
+        "event": {
+            "esp":"ATENTAR DESDE LOS CODIGOS",
+            "eng":"ATTENTION FROM THE CODES"
+        },
+        "city": {
+            "esp": "Puebla",
+            "eng": "Puebla"
+        },
+        "calltoaction": {
+            "esp":"INTERACTÚA",
+            "eng":"INTERACT"
+        },
+        "target": "_blank",
+        "url": "https://livecinemacoding.xyz/coding-in-atypical-places-acc-2019/",
+        "video": "cover-autoconstruccion-iclc-2023-01.mp4"
+    },
+    {
+        "title": {
+            "esp": "FIREWORKS",
+            "eng": "FIREWORKS"
+        },
+        "type": {
+            "esp":"INSTALACION AUDIOVISUAL",
+            "eng":"AUDIOVISUAL INSTALLATION"
+        },
+        "year": "2022",
+        "time": {
+            "esp": "ARCHIVO",
+            "eng": "ARCHIVE"
+        },
+        "author": "MALITZIN CORTES (CNDSD) + IVAN ABREU",
+        "place": {
+            "esp":"ESTUDIO QUARRY",
+            "eng":"QUARRY STUDIO"
+        },
+        "event": {
+            "esp":"MUTEK MX",
+            "eng":"MUTEK MX"
+        },
+        "city": {
+            "esp": "Ciudad de Mexico",
+            "eng": "Mexico City"
+        },
+        "calltoaction": {
+            "esp":"VER",
+            "eng":"WATCH"
+        },
+        "target": "_blank",
+        "url": "https://livecinemacoding.xyz/coding-in-atypical-places-acc-2019/",
+        "video": "cover-corea01.mp4"
+    }
+]

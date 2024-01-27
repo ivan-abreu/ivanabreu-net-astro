@@ -1,0 +1,35 @@
+---
+export interface Props {
+    videofile: string;
+}
+
+const { videofile } = Astro.props;
+---
+
+<!-- <div id="gradientovervideo"></div> -->
+<video muted class="videocover" loop >
+    <source src={videofile} type="video/mp4" />
+    Your browser does not support HTML5 video.
+</video>
+
+<style>
+
+
+    .videocover {
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -2;
+        opacity: 0.0;
+    }
+
+</style>

@@ -1,0 +1,284 @@
+---
+import Layout from '../layouts/Layout.astro';
+import dataCover from '../datacover/cover.json';
+import CoverSequencer from '../components/CoverSequencer.astro';
+import IconArrowExturl from '../components/IconArrowExturl.astro';
+import Fullvideocover from '../components/Fullvideocover.astro';
+
+const width_ = 700;
+const coverhighlightwidth = `${width_}px`;
+const coverhighlightswidth = `${width_ * dataCover.length}px`;
+
+function elemento() {
+	return `<div class="Coverhighlights-informationsheet-highlightitem"></div>`
+}
+---
+
+<Layout title="Ivan Abreu">
+	<main>
+		Ivan Abreu <br>
+		<a href="/">HOME</a> | <a href="/work">WORK</a> <a href="/biocv">BIO/CV</a>
+		
+
+		<div class="Coverhighlights--cliping" >
+			<div class="Coverhighlights">
+				{ dataCover.map( 
+					(e) => 
+					<div class="Coverhighlights-informationsheet">
+						<div class="Coverhighlights-informationsheet-typetime">
+							<div class="Coverhighlights-informationsheet-type" data-esp={e.type.esp} data-eng={e.type.eng}>{e.type.eng}</div>
+							<div> | </div>
+							<div class="Coverhighlights-informationsheet-time" data-esp={e.time.esp} data-eng={e.time.eng}>{e.time.eng}</div>
+						</div>
+						<div class="Coverhighlights-informationsheet-event" data-esp={e.event.esp} data-eng={e.event.eng}>{e.event.eng}</div> 
+						<!-- <div class="Coverhighlights-informationsheet-placeevent" data-esp={e.place.esp} data-eng={e.place.eng}>{e.place.eng}</div> -->
+						<div class="Coverhighlights-informationsheet-title" data-esp={e.title.esp} data-eng={e.title.eng}>{e.title.eng}</div> 
+						<div class="Coverhighlights-informationsheet-cityyear">
+							<div class="Coverhighlights-informationsheet-city" data-esp={e.city.esp} data-eng={e.city.eng}>{e.city.eng}</div>
+							<svg width="10" height="6" viewBox="0 0 6 6" ><circle fill="#ffffff" cx="3" cy="3" r="3" ></circle></svg>
+							<div class="Coverhighlights-informationsheet-year" data-esp={e.year} data-eng={e.year}>{e.year}</div>
+						</div>
+						<div class="Coverhighlights-informationsheet-author" >{e.author}</div>
+						<a class="Coverhighlights-informationsheet-calltoaction" href={e.url} target={e.target}>
+							<div data-esp={e.calltoaction.esp} data-eng={e.calltoaction.eng}>{e.calltoaction.eng}</div>
+							<IconArrowExturl />
+						</a>
+						
+					</div>
+					) 
+				}
+			</div>
+
+			
+
+			<div class="Coverhighlights-informationsheet-highlightnav">
+				{ dataCover.map( (j, i) => {
+					return <div class="Coverhighlights-informationsheet-highlightitem" data-index={i} onclick="pauseSequencer(this)" ><div class="highlightitem-cursor"></div></div> 
+				} ) }
+			</div>
+		</div>
+
+		
+
+		{ dataCover.map( (v, i) => {
+				console.log( v.video )
+				return <Fullvideocover videofile={`/videos/${v.video}`} />
+		} ) }
+
+		<CoverSequencer />
+
+		
+
+		
+			
+	</main>
+</Layout>
+
+<style define:vars={{ coverhighlightwidth, coverhighlightswidth }} is:global>
+
+	.Coverhighlights--cliping {
+		position: fixed;
+		left: 40px;
+		bottom: 40px;
+		width: var(--coverhighlightwidth);
+		height: auto;
+		overflow: hidden;
+		/* background-color: aqua; */
+	}
+
+	.Coverhighlights {
+		position: relative;
+    	left: 0px;
+    	top: 0px;
+		width: var(--coverhighlightswidth);
+		height: auto;
+		display: flex;
+		justify-content:space-between;
+		align-items: flex-end;
+		/* gap: 20px; */
+		/* background-color: coral; */
+	}
+
+	.Coverhighlights-informationsheet {
+		display: flex;
+		flex-direction: column;
+		width: var(--coverhighlightwidth);
+		/* height: 500px; */
+	}
+
+	.Coverhighlights-informationsheet-placeevent {
+
+	}
+	.Coverhighlights-informationsheet-event {
+		font-size: 3rem;
+		line-height: 1em;
+	}	
+	.Coverhighlights-informationsheet-title {
+		font-size: 3rem;
+		line-height: 0.62em;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
+
+	.Coverhighlights-informationsheet-typetime {
+		display: flex;
+		gap: 2ch;
+		padding-bottom: 0.25em;
+		align-items: center;
+		/* align-content: center; */
+		border-bottom: 1px solid #ffffff88;
+	}
+	.Coverhighlights-informationsheet-type {
+		font-size: 1.25rem;
+		font-weight: 600;	
+	}
+	.Coverhighlights-informationsheet-time {
+		font-size: 1.25rem;
+	}
+
+	.Coverhighlights-informationsheet-cityyear {
+		display: flex;
+		gap: 2ch;
+		align-items: center;
+		/* padding-bottom: 0.25em; */
+		/* border-bottom: 1px solid #ffffff88; */
+	}
+	.Coverhighlights-informationsheet-city {
+		font-size: 1.25rem;
+		/* font-weight: 600;	 */
+	}
+	.Coverhighlights-informationsheet-year {
+		font-size: 1.25rem;
+	}
+
+	.Coverhighlights-informationsheet-author {
+		font-size: 1.25rem;
+		/* font-weight: 200; */
+		align-items: center;
+		/* align-content: center; */
+		padding-bottom: 0.35em;
+		border-bottom: 1px solid #ffffff88;
+	}
+
+	.Coverhighlights-informationsheet-calltoaction {
+		font-size: 1rem;
+		/* font-weight: 800; */
+		cursor: pointer;
+		height: 4rem;
+		display: flex;
+		align-items: center;
+		/* border-bottom: 1px solid #ffffff88; */
+		gap: 2ch;
+
+		box-shadow: inset 0 0 0 0 #ffffff;
+		transition: box-shadow .3s ease-in-out;
+	}
+
+	.Coverhighlights-informationsheet-calltoaction * {
+		transition: all .3s ease-in-out
+	}
+
+	.Coverhighlights-informationsheet-calltoaction:hover {
+        box-shadow: inset var(--coverhighlightwidth) 0 0 0 #ffffff;
+    }
+
+	.Coverhighlights-informationsheet-calltoaction:hover div {
+        color: rgb(0, 0, 0);
+    }
+	.Coverhighlights-informationsheet-calltoaction:hover .arrow {
+		stroke: #000000;
+    }
+
+
+
+	.Coverhighlights-informationsheet-highlightnav {
+		width: 100%;
+		display: flex;
+		gap: 10px;
+		cursor: pointer;
+		/* margin-top: 12px; */
+		/* align-items: center; */
+		/* align-content: stretch; */
+		/* justify-content: stretch; */
+		/* align-items: stretch; */
+		/* border-bottom: 1px solid #ffffff88; */
+		/* height: 8px; */
+	}
+	.Coverhighlights-informationsheet-highlightitem {
+		position: relative;
+		/* background-color: #ffffff; */
+		height: 18px;
+		width: 100%;
+		border-top: 1px solid #ffffff88;
+		border-bottom: 1px solid #ffffff88;
+
+		box-shadow: inset 0 0 0 0 #ffffff;
+		transition: all .18s ease-in-out;
+	}
+
+	.Coverhighlights-informationsheet-highlightitem:hover {
+        box-shadow: inset 0 18px 0 0 #ffffff;
+		border-top: 1px solid #ffffff;
+		border-bottom: 1px solid #ffffff;
+    }
+
+	.Coverhighlights-informationsheet-highlightitem:hover .highlightitem-cursor {
+		background-color: #000000;
+	}
+
+	.highlightitem-cursor {
+		content: '';
+		position: absolute;
+		/* left: calc(100% - 3px); */
+		left: 0%; /* 97% */
+		top: 0px;
+		background-color: #ffffff;
+		height: 16px;
+		width: 3px; 
+		transition: 'background-color' .18s ease-in-out;
+		z-index: 1;
+	}
+
+	/* .highlightitem--active:hover::after {
+        content: '';
+		position: absolute;
+		left: 0%;
+		top: 0px;
+		background-color: #000000 !important;
+		height: 16px;
+		width: 3px; 
+    } */
+
+	/* calltoaction FX */
+
+	/* a.fx1 {
+            box-shadow: inset 0 0 0 0 #ff0000;
+            color: #ff0000;
+            margin: 0 -.25rem;
+            padding: 0 .25rem;
+            transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+        }
+
+        a.fx1:hover {
+            box-shadow: inset 150px 0px 0 0 #ff0000;
+            color: white;
+        }
+ */
+
+/* main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	} */
+</style>
