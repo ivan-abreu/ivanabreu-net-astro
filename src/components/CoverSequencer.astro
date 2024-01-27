@@ -33,18 +33,18 @@
 </style>
 
 <script is:inline>
-    // let coversequencer = setInterval(() => {}, 1000);
+    
     let coversequencer;
     let highlightitemIndex = 0;
     const highlightitems = document.querySelectorAll(
         ".Coverhighlights-informationsheet",
     );
     const counthighlightitems = highlightitems.length;
-    let curretnhighlightitem = d3.select(
-        `.Coverhighlights-informationsheet-highlightitem:nth-child(${
-            highlightitemIndex + 1
-        })`,
-    );
+    //alert( `.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` )
+    let curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
+
+    //let curretnhighlightitem2 = document.getElementsByClassName("Coverhighlights-informationsheet-highlightitem")[highlightitemIndex];
+    //alert( curretnhighlightitem2.getAttribute("data-index") )
     //console.log(counthighlightitems);
     //d3.select('#videocover').style('opacity', 0)
     // const uisequencer = d3.scaleLinear([0, 8000], [0, 100])
@@ -110,12 +110,12 @@
             //         .duration(600)
             //         .style("opacity", 1);
             // }, 1300);
-
-            curretnhighlightitem = d3.select(
-                `.Coverhighlights-informationsheet-highlightitem:nth-child(${
-                    highlightitemIndex + 1
-                })`,
-            );
+            curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
+            // curretnhighlightitem = d3.select(
+            //     `.Coverhighlights-informationsheet-highlightitem:nth-child(${
+            //         highlightitemIndex + 1
+            //     })`,
+            // );
             d3.selectAll(".highlightitem-cursor")
                 .transition()
                 .duration(150)
@@ -138,11 +138,12 @@
     }
 
     function pauseSequencer(e) {
-        curretnhighlightitem = d3.select(
-            `.Coverhighlights-informationsheet-highlightitem:nth-child(${
-                highlightitemIndex + 1
-            })`,
-        );
+        // curretnhighlightitem = d3.select(
+        //     `.Coverhighlights-informationsheet-highlightitem:nth-child(${
+        //         highlightitemIndex + 1
+        //     })`,
+        // );
+        // curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
 
         videoEle = document.getElementsByClassName("videocover")[highlightitemIndex];
         videoEle.pause();
@@ -155,6 +156,7 @@
         //     .style("opacity", 0);
 
         highlightitemIndex = parseInt(e.getAttribute("data-index"));
+        curretnhighlightitem = d3.select(`.Coverhighlights-informationsheet-highlightitem[data-index="${highlightitemIndex}"]` );
         clearInterval(coversequencer);
         //alert( `.videocover:nth-child(${highlightitemIndex + 1})` )
         // d3.timeout(() => {
@@ -186,7 +188,7 @@
             .duration(600)
             .style("left", `${highlightitemIndex * -700}px`);
 
-        // startSequencer();
+        startSequencer();
     }
 
     startSequencer();
