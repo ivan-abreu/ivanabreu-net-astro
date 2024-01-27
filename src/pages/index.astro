@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import dataCover from '../datacover/cover.json';
+import dataCover from '../datasections/cover.json';
 import CoverSequencer from '../components/CoverSequencer.astro';
 import IconArrowExturl from '../components/IconArrowExturl.astro';
 import Fullvideocover from '../components/Fullvideocover.astro';
+import IconTogglemute from '../components/IconTogglemute.astro';
+import Mainmenu from '../components/Mainmenu.astro';
 
 const width_ = 700;
 const coverhighlightwidth = `${width_}px`;
@@ -16,9 +18,13 @@ function elemento() {
 
 <Layout title="Ivan Abreu">
 	<main>
-		Ivan Abreu <br>
-		<a href="/">HOME</a> | <a href="/work">WORK</a> <a href="/biocv">BIO/CV</a>
-		
+		<Mainmenu typographycolor="#000000" backgroundcolor="#ffffff"/>
+		<!-- <Mainmenu typographycolor="#ecf0fd" backgroundcolor="#67666b"/> -->
+		<!-- <Mainmenu typographycolor="#ffffff" backgroundcolor="#67666b"/> -->
+		<!-- <Mainmenu typographycolor="#000000" backgroundcolor="#ecf0fd"/> -->
+		<!-- <Mainmenu typographycolor="#d8d671" backgroundcolor="#a9250b"/> -->
+		<!-- <Mainmenu typographycolor="#ffffff" backgroundcolor="#a9250b"/> -->
+		<!-- <Mainmenu typographycolor="#000000" backgroundcolor="#d8d671"/> -->
 
 		<div class="Coverhighlights--cliping" >
 			<div class="Coverhighlights">
@@ -39,10 +45,16 @@ function elemento() {
 							<div class="Coverhighlights-informationsheet-year" data-esp={e.year} data-eng={e.year}>{e.year}</div>
 						</div>
 						<div class="Coverhighlights-informationsheet-author" >{e.author}</div>
-						<a class="Coverhighlights-informationsheet-calltoaction" href={e.url} target={e.target}>
-							<div data-esp={e.calltoaction.esp} data-eng={e.calltoaction.eng}>{e.calltoaction.eng}</div>
-							<IconArrowExturl />
-						</a>
+						<div class="Coverhighlights-informationsheet-calltoactionunmuted">
+							<a class="Coverhighlights-informationsheet-calltoaction" href={e.url} target={e.target}>
+								<div data-esp={e.calltoaction.esp} data-eng={e.calltoaction.eng}>{e.calltoaction.eng}</div>
+								<IconArrowExturl />
+							</a>
+							<div class="Coverhighlights-informationsheet-unmuted" onclick="toggleMute()">
+								<IconTogglemute />
+							</div>
+						</div>
+						
 						
 					</div>
 					) 
@@ -53,7 +65,7 @@ function elemento() {
 
 			<div class="Coverhighlights-informationsheet-highlightnav">
 				{ dataCover.map( (j, i) => {
-					return <div class="Coverhighlights-informationsheet-highlightitem" data-index={i} onclick="pauseSequencer(this)" ><div class="highlightitem-cursor"></div></div> 
+					return <div class="Coverhighlights-informationsheet-highlightitem" data-index={i} onclick="pauseSequencer(this)" data-typographycolor={j.typographycolor} data-backgroundcolor={j.backgroundcolor} ><div class="highlightitem-cursor"></div></div> 
 				} ) }
 			</div>
 		</div>
@@ -160,8 +172,14 @@ function elemento() {
 		border-bottom: 1px solid #ffffff88;
 	}
 
+	.Coverhighlights-informationsheet-calltoactionunmuted {
+		display: flex;
+		align-items: center;
+	}
+
 	.Coverhighlights-informationsheet-calltoaction {
 		font-size: 1rem;
+		width: calc(100% - 4rem);
 		/* font-weight: 800; */
 		cursor: pointer;
 		height: 4rem;
@@ -169,7 +187,8 @@ function elemento() {
 		align-items: center;
 		/* border-bottom: 1px solid #ffffff88; */
 		gap: 2ch;
-
+		padding-left: 3ch;
+		/* margin-right: 6ch; */
 		box-shadow: inset 0 0 0 0 #ffffff;
 		transition: box-shadow .3s ease-in-out;
 	}
@@ -188,6 +207,20 @@ function elemento() {
 	.Coverhighlights-informationsheet-calltoaction:hover .arrow {
 		stroke: #000000;
     }
+
+	.Coverhighlights-informationsheet-unmuted {
+		width: calc(4rem - 20px);
+		height: calc(4rem - 20px);
+		/* background-color: aquamarine; */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 10px 10px 10px 0px;
+		padding-left: 10px;
+		box-sizing: content-box;
+		border-left: 1px solid #ffffff88;
+		cursor: pointer;
+	}
 
 
 
